@@ -1,0 +1,117 @@
+[
+    "users": [
+        {
+            "id": 111,
+            "name": "John",
+            "surname": "Doe",
+            "email": "john_doe@gmail.com"
+        },
+        {
+            "id": 222,
+            "name": "Robert",
+            "surname": "Django",
+            "patronymic": null,
+            "email": "robert@gmail.com"
+        },
+        {
+            "id": 333,
+            "name": "Alexa",
+            "surname": "Smith",
+            "patronymic": "O'brian",
+            "email": "alexus@mail.com"
+        }
+    ],
+    "books": [
+        {
+            "id": 1111,
+            "name": "Starship troopers",
+            "author": "Robert A. Heinlein",
+            "isbn": "9780441014101"
+        },
+        {
+            "id": 2222,
+            "name": "Dune",
+            "author": "Frank Herbert",
+            "isbn": "9780143111580"
+        },
+        {
+            "id": 3333,
+            "name": "Ender's game",
+            "author": "Orson Scott Card",
+            "isbn": "9780765317384"
+        }
+    ],
+    "shops": [
+        {
+            "id": 999,
+            "name": "Foyles bookstore",
+            "address": "Charing Cross Rd, Soho, London, United Kingdom",
+            "zipcode": "WC2H 0DT"
+        },
+        {
+            "id": 888,
+            "name": "Rye Books",
+            "address": "47 N Cross Rd, East Dulwich, London, United Kingdom",
+            "zipcode": "SE22 9ET"
+        }
+    ],
+    "orders": [
+        {
+            "id": 939483,
+            "reg_date": "2020-02-23T11:34",
+            "user_id": 111
+        },
+        {
+            "id": 979484,
+            "reg_date": "2020-03-13T17:44",
+            "user_id": 222
+        },
+        {
+            "id": 999484,
+            "reg_date": "2020-04-16T13:14",
+            "user_id": 333
+        },
+        {
+            "id": 999999,
+            "reg_date": "2020-04-19T11:04",
+            "user_id": 111
+        }
+    ],
+    "order_items": [
+        {
+            "id": 9083421,
+            "order_id": 939483,
+            "book_id": 1111,
+            "book_quantity": 2,
+            "shop_id": 999
+        },
+        {
+            "id": 9083422,
+            "order_id": 939483,
+            "book_id": 2222,
+            "book_quantity": 1,
+            "shop_id": 999
+        },
+        {
+            "id": 9083423,
+            "order_id": 979484,
+            "book_id": 3333,
+            "book_quantity": 3,
+            "shop_id": 888
+        },
+        {
+            "id": 9083424,
+            "order_id": 999484,
+            "book_id": 1111,
+            "book_quantity": 1,
+            "shop_id": 999
+        },
+        {
+            "id": 9083425,
+            "order_id": 999999,
+            "book_id": 2222,
+            "book_quantity": 2,
+            "shop_id": 888
+        }
+    ]
+]
