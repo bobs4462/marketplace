@@ -16,10 +16,11 @@ async def user(request: web.Request) -> web.Response:
         response = web.Response(status=400, reason='User\'s identificator is not a number')
     session = db.get_session()
 
-    from tables import User
-    user = session.query(User).filter_by(id=user_id).first()
-        
-    print(user)
+    if not response:
+        from tables import User
+        user = session.query(User).filter_by(id=user_id).first()
+        user = user.json_serialize()
+        response = web.Response(body=user, content_type='application/json')
     return response
 
 
