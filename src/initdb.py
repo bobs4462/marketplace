@@ -55,6 +55,13 @@ for i in items:
     item = OrderItem(id=i['id'], order_id=i['order_id'], book_id=i['book_id'], shop_id=i['shop_id'], book_quantity=i['book_quantity'])
     session.add(item)
 
+# Adding Lot records, not in assignment, but otherwise not possible to complete part 2 of the that assignment
+from tables import Lot
+lots = records['lots']
+for l in lots:
+    lot = Lot(id=l['id'], shop_id=l['shop_id'], book_id=l['book_id'])
+    session.add(lot)
+
 
 # Committing changes to database and closing connection
 session.commit()

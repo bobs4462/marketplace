@@ -113,5 +113,52 @@
             "book_quantity": 2,
             "shop_id": 888
         }
+    ],
+    "lots": [
+        {
+            "id": 1,
+            "book_id": 1111,
+            "shop_id": 999
+        },
+        {
+            "id": 2,
+            "book_id": 1111,
+            "shop_id": 999
+        },
+        {
+            "id": 3,
+            "book_id": 1111,
+            "shop_id": 888
+        },
+        {
+            "id": 4,
+            "book_id": 2222,
+            "shop_id": 999
+        },
+        {
+            "id": 5,
+            "book_id": 2222,
+            "shop_id": 888
+        },
+        {
+            "id": 6,
+            "book_id": 2222,
+            "shop_id": 888
+        },
+        {
+            "id": 7,
+            "book_id": 3333,
+            "shop_id": 999
+        },
+        {
+            "id": 8,
+            "book_id": 3333,
+            "shop_id": 999
+        },
+        {
+            "id": 9,
+            "book_id": 3333,
+            "shop_id": 888
+        }
     ]
 }
