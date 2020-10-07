@@ -1,3 +1,4 @@
+#!/bin/python3
 from lib.requests import user_get, order_create, user_orders_get, shop_inventory_get
 from aiohttp import web
 

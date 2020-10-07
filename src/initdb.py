@@ -1,4 +1,4 @@
-#! /bin/python3
+#!/bin/python3
 from datetime import datetime as dt
 from lib.tables import Order, Shop, Book, User, OrderItem, Lot, BASE
 from lib.db import DB

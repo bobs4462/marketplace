@@ -18,7 +18,7 @@ this will start the server, and it's immediately ready to accept connections
 
 ## Available methods
 ### Get methods
-*All parameters for get request should encoded in url*
+*All parameters for get requests should be encoded in url*
 
 **Methods:**
 * /user/get
@@ -27,7 +27,8 @@ this will start the server, and it's immediately ready to accept connections
 
 #### /user/get
 **Parameters:**
-    * id - id of desired user
+* id - id of desired user
+
 **Example:**
 ```
 curl -X GET http://localhost:8080/user/get?id=111
@@ -35,19 +36,25 @@ curl -X GET http://localhost:8080/user/get?id=111
 
 #### /user/orders/get
 **Parameters:**
-    * user\_id - id of desired user
+
+* user\_id - id of desired user
+
+**Example**
 ```
 curl -X GET http://localhost:8080/user/orders/get?user_id=111
 ```
 
 #### /shop/inventory/get
+
 **Parameters:**
-    * shop\_id - id of desired shop
+
+* shop\_id - id of desired shop
+
+**Example**
 ```
 curl -X GET http://localhost:8080/shop/inventory/get?shop_id=999
 ```
 
-**Example**
 
 ### Post methods
 *All parameters for post request should be passed in body in json format*
@@ -57,10 +64,10 @@ curl -X GET http://localhost:8080/shop/inventory/get?shop_id=999
 
 #### /order/create
 **Parameters:**
-    * book\_id - id of bought book
-    * book\_quantity - the number of copies of book bought
-    * user\_id - id of the user, who made the purchase
-    * shop\_id - id of shop, where the purchase was made
+* book\_id - id of bought book
+* book\_quantity - the number of copies of book bought
+* user\_id - id of the user, who made the purchase
+* shop\_id - id of shop, where the purchase was made
 ```
 curl -d '{"book_id": 2222, "user_id": 111, "shop_id": 999, "book_quantity": 2}' -X POST http://localhost:8080/order/create
 ```
