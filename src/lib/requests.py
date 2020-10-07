@@ -5,19 +5,22 @@ import json
 from lib.helpers import validate_int, ValidationStatus, validate_json
 from lib.db import DB
 from lib.tables import Order, OrderItem, User, Shop, Book, Lot
+import logging
+
+logging.basicConfig(format='%(asctime)s %(message)s', level=logging.WARNING)
 
 db = DB(url="data/marketplace.db")
 
 # Retrieve user information
-
-
 async def user_get(request: web.Request) -> web.Response:
     response = None
     user_id = request.query['id']
+    logging.warning(f'Method /user/get\nParams: user_id: {user_id}')
 
     # Perform some validation
     status = validate_int(user_id)
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating user_id: {status}')
         response = web.Response(
             status=400, body=f'User\'s identificator {status.value}')
 
@@ -30,6 +33,7 @@ async def user_get(request: web.Request) -> web.Response:
         user = user.json_serialize()
         response = web.Response(status=200, body=user,
                                 content_type='application/json')
+    
     return response
 
 # Create order, with particular book and it's quantity
@@ -38,9 +42,11 @@ async def user_get(request: web.Request) -> web.Response:
 async def order_create(request: web.Request) -> web.Response:
     response = None
     content = await request.content.read()
+    logging.warning(f'Method /order/create\nParams: {content}')
     status = validate_json(content)
     # Validating correct JSON
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating params: {status}')
         response = web.Response(
             status=400, body=f'Order information {status.value}')
     # getting body of request in dict
@@ -50,21 +56,25 @@ async def order_create(request: web.Request) -> web.Response:
     book_id = content.get('book_id')
     status = validate_int(book_id)
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating book_id: {status}')
         response = web.Response(
             status=400, body=f'Book\'s identificator {status.value}')
     user_id = content.get('user_id')
     status = validate_int(user_id)
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating user_id: {status}')
         response = web.Response(
             status=400, body=f'User\'s identificator {status.value}')
     book_quantity = content.get('book_quantity')
     status = validate_int(book_quantity)
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating book_quantity: {status}')
         response = web.Response(
             status=400, body=f'Book\'s quantity {status.value}')
     shop_id = content.get('shop_id')
     status = validate_int(shop_id)
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating shop_id: {status}')
         response = web.Response(
             status=400, body=f'Shop\'s identificator {status.value}')
 
@@ -94,9 +104,11 @@ async def order_create(request: web.Request) -> web.Response:
 async def user_orders_get(request: web.Request) -> web.Response:
     response = None
     user_id = request.query['user_id']
+    logging.warning(f'Method /user/orders/get\nParams: user_id: {user_id}')
     # Perform some validation
     status = validate_int(user_id)
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating user_id: {status}')
         response = web.Response(
             status=400, body=f'User\'s identificator {status.value}')
 
@@ -128,9 +140,11 @@ async def user_orders_get(request: web.Request) -> web.Response:
 async def shop_inventory_get(request: web.Request) -> web.Response:
     response = None
     shop_id = request.query['shop_id']
+    logging.warning(f'Method /shop/inventory/get\nParams: shop_id: {shop_id}')
 
     status = validate_int(shop_id)
     if status != ValidationStatus.OK:
+        logging.error(f'Error validating shop_id: {status}')
         response = web.Response(
             status=400, body=f'Shop\'s identificator {status.value}')
     if response is None:
