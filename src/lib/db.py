@@ -16,3 +16,13 @@ class DB:
     # Accessor for session object, which is used for direct communication with the database, sort of a handle for current connection
     def get_session(self):
         return self.__session_class()
+
+from sqlalchemy.engine import Engine
+from sqlalchemy import event
+
+# https://stackoverflow.com/questions/2614984/sqlite-sqlalchemy-how-to-enforce-foreign-keys 
+@event.listens_for(Engine, "connect")
+def set_sqlite_pragma(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
